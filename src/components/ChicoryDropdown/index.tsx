@@ -1,6 +1,6 @@
 import React from "react";
 import ChicoryDropdownOption from "./ChicoryDropdownOption";
-import useLocalStorage from "../../utils/customhooks/useLocalStorage";
+import { useLocalStorage } from '../../utils/customhooks';
 import "./chicorydropdown.css";
 
 const data = {
@@ -199,23 +199,22 @@ const data = {
 export default function ChicoryDropdown() {
   const [value, setValueLocalStorage] = useLocalStorage(
     "chicory-dropdown-default",
-    0
+    ""
   );
 
-  const handleClick = (index: number): void => {
-    setValueLocalStorage(index);
+  const handleClick = (name: string): void => {
+    setValueLocalStorage(name);
   };
-
+  console.log(value, localStorage)
   return (
-    <select className="chicory-drop-down">
-      {data.data.retailers.map((retailer, index) => {
+    <select className="chicory-drop-down" defaultValue={value}>
+      {data.data.retailers.map((retailer) => {
         return (
           <ChicoryDropdownOption
             key={retailer.id}
             dropdowndata={retailer}
-            index={index}
             handleClick={handleClick}
-            defaultIndex={value}
+            defaultValue={value}
           />
         );
       })}

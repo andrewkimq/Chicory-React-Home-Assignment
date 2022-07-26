@@ -7,23 +7,20 @@ type DropdownProps = {
     shopOnLogoUrl: string;
     slug: string;
   };
-  index: number;
   handleClick: Function;
-  defaultIndex: number;
+  defaultValue: string;
 };
 
 export default function ChicoryDropdownOption({
   dropdowndata,
-  index,
   handleClick,
-  defaultIndex,
+  defaultValue,
 }: DropdownProps) {
   const { name } = dropdowndata;
 
   return (
     <option
-      onClick={() => handleClick(index)}
-      selected={index === defaultIndex}
+      onClick={() => handleClick(name)}
       value={name}
     >
       {name}
