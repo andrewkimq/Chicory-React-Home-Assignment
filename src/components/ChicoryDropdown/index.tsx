@@ -209,8 +209,8 @@ type DropdownProps = {
 export default function ChicoryDropdown() {
   return (
     <select className='chicory-drop-down'>
-      {data.data.retailers.map((retailer) => {
-        return <ChicoryDropdownOption dropdowndata={retailer} />;
+      {data.data.retailers.map((retailer, index) => {
+        return <ChicoryDropdownOption key={retailer.id} dropdowndata={retailer} index={index}/>;
       })}
     </select>
   );
