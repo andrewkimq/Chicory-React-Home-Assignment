@@ -9,7 +9,7 @@ export default function useFetchRetailers(url: RequestInfo) {
       setIsLoading(true);
       try {
         const response = await fetch(url);
-        const newRetailerResponse = await response.json(); 
+        const newRetailerResponse = await response.json();
         setRetailerResponse(newRetailerResponse);
       } catch (error) {
         let message = "Unknown Error";
