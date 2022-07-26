@@ -9,8 +9,10 @@ type DropdownProps = {
   };
 };
 
-export default function ChicoryDropdownOptions({
+export default function ChicoryDropdownOption({
   dropdowndata,
 }: DropdownProps) {
-  return <div></div>;
+  const {id, logoUrl, name, requiresLocation, shopOnLogoUrl, slug} = dropdowndata
+
+  return <option>{name}</option>;
 }

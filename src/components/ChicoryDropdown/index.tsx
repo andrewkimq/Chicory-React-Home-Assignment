@@ -1,4 +1,6 @@
 import React from "react";
+import ChicoryDropdownOption from "./ChicoryDropdownOption";
+import "./chicorydropdown.css"
 
 const data = {
   data: {
@@ -205,5 +207,11 @@ type DropdownProps = {
 };
 
 export default function ChicoryDropdown() {
-  return <select></select>;
+  return (
+    <select className='chicory-drop-down'>
+      {data.data.retailers.map((retailer) => {
+        return <ChicoryDropdownOption dropdowndata={retailer} />;
+      })}
+    </select>
+  );
 }
