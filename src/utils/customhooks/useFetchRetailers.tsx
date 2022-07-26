@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function useFetchRetailers(url: URL) {
+export default function useFetchRetailers(url: RequestInfo) {
   const [retailerResponse, setRetailerResponse] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -9,7 +9,7 @@ export default function useFetchRetailers(url: URL) {
       setIsLoading(true);
       try {
         const response = await fetch(url);
-        const newRetailerResponse = await response.json();
+        const newRetailerResponse = await response.json(); 
         setRetailerResponse(newRetailerResponse);
       } catch (error) {
         let message = "Unknown Error";
