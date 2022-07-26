@@ -205,7 +205,7 @@ export default function ChicoryDropdown() {
   const handleClick = (name: string): void => {
     setValueLocalStorage(name);
   };
-  console.log(value, localStorage)
+
   return (
     <select className="chicory-drop-down" defaultValue={value}>
       {data.data.retailers.map((retailer) => {
