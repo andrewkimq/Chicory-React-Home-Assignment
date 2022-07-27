@@ -1,5 +1,6 @@
 import ChicoryDropdownOption from "./ChicoryDropdownOption";
 import { useFetchRetailers, useLocalStorage } from "../../utils/customhooks";
+import { endpoint } from "../../utils/endpoints";
 import "./chicorydropdown.css";
 
 type JSONResponse = {
@@ -18,17 +19,7 @@ type Retailer = {
 };
 
 export default function ChicoryDropdown() {
-  const [retailerResponse, isLoading] =
-    useFetchRetailers(`https://cors-anywhere.herokuapp.com/http://prod-cart.chicoryapp.com/api/graph?query= query retailers {
-    retailers(zipCode: "11234", blacklistedRetailers: [], whitelistedRetailers: []) {
-    id
-    slug
-    shopOnLogoUrl
-    logoUrl
-    name
-    requiresLocation
-    }
-    }`);
+  const [retailerResponse, isLoading] = useFetchRetailers(endpoint.retailers);
   const [value, setValueLocalStorage] = useLocalStorage(
     "chicory-dropdown-default",
     ""
@@ -40,7 +31,7 @@ export default function ChicoryDropdown() {
 
   const typedRetailerResponse = retailerResponse as JSONResponse;
 
-  if (isLoading) return <p className='isloading'>Is Loading...</p>
+  if (isLoading) return <p className="isloading">Is Loading...</p>;
 
   return (
     <select className="chicory-drop-down" defaultValue={value}>
