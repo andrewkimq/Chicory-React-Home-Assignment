@@ -40,8 +40,6 @@ export default function ChicoryDropdown() {
 
   const typedRetailerResponse = retailerResponse as JSONResponse;
 
-  console.log(localStorage, value)
-
   if (isLoading) return <p className='isloading'>Is Loading...</p>
 
   return (
