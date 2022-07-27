@@ -4,7 +4,7 @@ The goal of this assignment was to implement a dropdown with options queried fro
 
 ## Test Plan
 
-In the project directory, you can run:
+https://i.imgur.com/JXByiJO.gif
 
 ## Comments
 
